@@ -1,6 +1,5 @@
 package com.pecorarista.example
 
-
 object ApplicationTypes {
   case class Document(
       uri: String,
