@@ -1,0 +1,21 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: pecorarista/sdkman
+        auth:
+          username: pecorarista
+          password: $DOCKERHUB_PASSWORD
+      - image: elasticsearch:7.3.2
+    steps:
+      - checkout
+      - run:
+          name: Show current versions
+          command: |
+            source /home/circleci/.sdkman/bin/sdkman-init.sh
+            sdk current
+      - run:
+          name: Check format
+          command: |
+            source /home/circleci/.sdkman/bin/sdkman-init.sh
+            sbt scalafmtCheck scalafmtSbtCheck
