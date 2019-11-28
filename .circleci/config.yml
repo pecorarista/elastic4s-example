@@ -8,9 +8,8 @@ jobs:
           password: $DOCKERHUB_PASSWORD
       - image: elasticsearch:7.3.2
         environment:
-          http.host: '0.0.0.0'
-          http.port: 9200
-          xpack.security.enabled: false
+          discovery.seed_hosts:
+            - 127.0.0.1:9200
     steps:
       - checkout
       - run:
