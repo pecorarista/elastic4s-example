@@ -9,11 +9,11 @@ import com.sksamuel.elastic4s.ElasticDsl.{ get => _, _ }
 import com.sksamuel.elastic4s.{ RequestFailure, RequestSuccess }
 import ch.megard.akka.http.cors.scaladsl.CorsDirectives._
 
-trait Route {
+import ApplicationTypes._
+import JsonProtocol._
+import com.sksamuel.elastic4s.sprayjson._
 
-  import ApplicationTypes._
-  import JsonProtocol._
-  import com.sksamuel.elastic4s.sprayjson._
+trait Route {
 
   implicit val elasticClient: ElasticClient
   implicit val executionContext: ExecutionContext
