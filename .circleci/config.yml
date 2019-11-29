@@ -9,7 +9,7 @@ jobs:
       - image: elasticsearch:7.3.2
         environment:
           discovery.seed_hosts:
-            - 127.0.0.1:9200
+            - '[::1]:9200'
     steps:
       - checkout
       - run:
