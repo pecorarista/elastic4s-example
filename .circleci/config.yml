@@ -12,7 +12,7 @@ jobs:
           network.host: _local_
           http.port: 9200
         entrypoint: |
-          bash -c "/tmp/install-plugin.sh analysis-kuromoji && docker-entrypoint.sh"
+          bash -c "./bin/install-plugin.sh analysis-kuromoji && docker-entrypoint.sh"
     steps:
       - checkout
       - run:
