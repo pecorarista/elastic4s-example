@@ -11,6 +11,8 @@ jobs:
           discovery.type: single-node
           network.host: _local_
           http.port: 9200
+        entrypoint: |
+          bash -c "/tmp/install-plugin.sh analysis-kuromoji && docker-entrypoint.sh"
     steps:
       - checkout
       - run:
@@ -23,3 +25,6 @@ jobs:
           command: |
             source /home/circleci/.sdkman/bin/sdkman-init.sh
             sbt scalafmtCheck scalafmtSbtCheck
+      - run:
+          name: Check if Elasticsearch is working
+          command: curl -X GET 'http://localhost:9200'
