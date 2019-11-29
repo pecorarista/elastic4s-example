@@ -9,7 +9,7 @@ jobs:
       - image: elasticsearch:7.3.2
         environment:
           discovery.type: single-node
-          network.host: '[::1]'
+          network.host: _local_
           http.port: 9200
     steps:
       - checkout
