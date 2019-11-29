@@ -8,6 +8,7 @@ jobs:
           password: $DOCKERHUB_PASSWORD
       - image: elasticsearch:7.3.2
         environment:
+          discovery.type: single-node
           network.host: '[::1]'
           http.port: 9200
     steps:
